@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}自分のツイートリスト{% endblock %}
+
+{% block body %}
+    <p>自分のツイートを検索して削除できます</p>
+    <form action="{% url "general:my_tweet_list" %}" method="get">
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">検索</button>
+    </form>
+
+    <p>"{{ text }}" の検索結果 {{ hit_count }} 件ヒットしました</p>
+
+    <form action="{% url "general:my_tweet_list" %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="text" value="{{ text }}">
+        <input type="hidden" name="created_at" value="{{ created_at }}">
+        <button type="submit" name="delete_all">ヒットしたツイートを全て削除する</button>
+    </form>
+
+    <p>ツイート一覧</p>
+    <ol>
+        {% for object in object_list %}
+            <li>
+                <p>{{ object.tweet_id }}</p>
+                <p><a href="https://twitter.com/{{ object.screen_name }}">@{{ object.screen_name }}</a>
+                    : {{ object.created_at }}</p>
+                <img src="{{ object.profile_image_url_https }}"/>
+                <pre>{{ object.text }}</pre>
+                <form action="{% url "general:my_tweet_list" %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="tweet_id" value="{{ object.tweet_id }}">
+                    <button type="submit" name="delete">このツイートを削除</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}ツイートリスト{% endblock %}
+
+{% block body %}
+    <p>ツイート一覧</p>
+    <form action="{% url "general:tweet_list" %}" method="get">
+        <div>
+            <label>{{ form.screen_name.label }} : </label>{{ form.screen_name }}
+        </div>
+        <button type="submit">ツイートを取得</button>
+    </form>
+
+    <ol>
+        {% for status in statuses %}
+            <li><pre>{{ status.text }}</pre></li>
+        {% endfor %}
+    </ol>
+{% endblock %}

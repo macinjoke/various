@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>MyHomePage | {% block title %}Title is necessary{% endblock %}</title>
+    <link href="{% static 'css/tekitou.css' %}" rel="stylesheet">
+</head>
+<body>
+    <p class="test"><a href="{% url "general:index" %}">TOPへ</a></p>
+    {% block body %}
+        Body is necessary
+    {% endblock %}
+</body>
+</html>
