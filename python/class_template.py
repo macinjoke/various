@@ -1,9 +1,6 @@
-import logging
-logging.basicConfig(level=logging.DEBUG)
-
 
 def main():
-    logging.debug("main start")
+    pass
 
 
 class Human:
@@ -19,7 +16,7 @@ class Alice(Human):
         super(Alice, self).__init__(name='Alice', age=age)
 
     def execute(self):
-        logging.debug("[EXECUTE] Alice")
+        print("[EXECUTE] Alice")
         print("アリスは{}歳だぞ".format(self.age))
 
 
