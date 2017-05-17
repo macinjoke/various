@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScriptの練習</title>
+</head>
+<body>
+hello, html.
+<script>
+    /*
+        タイマー処理
+            setInterval: 一定間隔ごとに実行(前の処理が終わったかどうか見ないので重いとクラッシュ)
+            setTimeout: 一定時間後に実行(前の処理が終わったかどうか見るので安心)
+     */
+
+//    var i = 0;
+//    function show() {
+//        console.log(i++);
+//    }
+
+//    setInterval(function(){
+//        show();
+//    }, 100);
+
+//    setTimeout(function(){
+//        show();
+//    }, 2000);
+
+    // 再帰を使ってsetTimeoutで繰り返し処理
+
+    var i = 0;
+    function show(){
+        console.log(i++);
+        var tid = setTimeout(function () {
+            show();
+        }, 1000);
+        if (i > 3){
+            clearTimeout(tid)
+        }
+    }
+    show();
+
+</script>
+
+</body>
+</html>

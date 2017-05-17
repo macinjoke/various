@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScriptの練習</title>
+</head>
+<body>
+hello, html.
+<script>
+    /*
+     組み込みオブジェクト
+     - String
+     - Array
+     - Math // 今回はこれ
+     - Date // とこれ
+     */
+
+    console.log(Math.PI);
+    console.log(Math.ceil(5.3)); // 6
+    console.log(Math.floor(5.3)); // 5
+    console.log(Math.round(5.3)); // 5 (四捨五入)
+    console.log(Math.random());
+
+    var d = new Date(); //現在時刻
+//    var d = new Date(2014, 1, 11, 10, 20, 30); // 2014年2月11日10時20分30秒 (月は0から始まるクソ)
+    console.log(d.getFullYear());
+    console.log(d.getMonth()); // ここで取れる値も0から始まるのでずれるクソ
+    console.log(d.getTime()); // Unix ミリ時間
+
+
+
+
+</script>
+
+</body>
+</html>

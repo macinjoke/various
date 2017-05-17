@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScriptの練習</title>
+</head>
+<body>
+hello, html.
+<script>
+    /*
+     組み込みオブジェクト
+         - String
+         - Array // 今回はこれ
+         - Math
+         - Date
+     */
+
+    var a = new Array(100, 300, 200);
+//     var a = [100, 300, 200];
+    console.log(a);
+    console.log(a.length);
+    // unshift -> array <- push
+    // shift <- array -> pop
+    a.push(500);
+    console.log(a);
+//    a.splice(1, 2); // 第一引数番目から第二引数コ削除
+    a.splice(1, 2, 30, 40, 50, 60, 'a'); // 第一引数番目から第二引数コ削除して第三引数以降をその後に追加していく
+
+    console.log(a);
+
+
+
+</script>
+
+</body>
+</html>

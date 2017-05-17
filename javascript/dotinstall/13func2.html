@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScriptの練習</title>
+</head>
+<body>
+hello, html.
+<script>
+    /*
+     関数
+
+     function hoge() {
+     しょり
+     }
+     */
+
+//    function hello(name){
+//        var msg = 'hello ' + name; //ローカル変数
+//        return msg;
+//    }
+    var hello = function(name){
+        var msg = 'hello ' + name; //ローカル変数
+        return msg;
+    };
+    var greet = hello('makky');
+    console.log(greet);
+//    console.log(msg) // エラー
+</script>
+
+</body>
+</html>
