@@ -1,0 +1,21 @@
+/*
+extend
+
+extend未適用
+<div class="button button-ok">OK</div>
+
+extend適用
+<div class="button-ok">OnK</div>
+ */
+.button,
+.button-ok,
+.button-ng {
+  font-size: 14px;
+  border: 1px solid black;
+}
+.button-ok {
+  color: green;
+}
+.button-ng {
+  color: red;
+}

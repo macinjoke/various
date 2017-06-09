@@ -1,0 +1,38 @@
+
+/*
+extend
+
+extend未適用
+<div class="button button-ok">OK</div>
+
+extend適用
+<div class="button-ok">OnK</div>
+ */
+
+// mixinを使った場合 (cssのコード量が多くなり、継承関係も見にくくなる)
+//.button {
+//  font-size: 14px;
+//  border: 1px solid black;
+//}
+//.button-ok {
+//  .button;
+//  color: green;
+//}
+//.button-ng {
+//  .button;
+//  color: red;
+//}
+
+.button {
+  font-size: 14px;
+  border: 1px solid black;
+}
+.button-ok {
+  &:extend(.button);
+  color: green;
+}
+.button-ng {
+  &:extend(.button);
+  color: red;
+}
+

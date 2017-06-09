@@ -1,0 +1,38 @@
+
+/*
+親要素を表す&
+(擬似クラス hover)
+ */
+
+
+/*
+header {
+  font-size: 18px;
+}
+
+header a {
+  color: red;
+}
+*/
+
+header {
+  font-size: 18px;
+  a {
+    color: red;
+    &:hover {
+      color: green;
+    }
+  }
+  //a:hover{
+  //  color: green;
+  //}
+}
+
+.button {
+  &-ok {
+    color: green;
+  }
+  &-ng {
+    color: red;
+  }
+}
