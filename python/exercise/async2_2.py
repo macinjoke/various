@@ -1,3 +1,4 @@
+import asyncio
 
 Seconds = [
     ('first', 5),
@@ -5,9 +6,14 @@ Seconds = [
     ('third', 3)
 ]
 
-import asyncio
 
 async def sleeping(order, seconds, hook=None):
+    await asyncio.sleep(seconds)
+    if hook:
+        hook(order)
+    return order
+
+async def hoge(order, seconds, hook=None):
     await asyncio.sleep(seconds)
     if hook:
         hook(order)
@@ -20,6 +26,7 @@ async def parallel_by_gather():
 
     # async関数の返り値はコルーチンになるので注意
     cors = [sleeping(s[0], s[1], hook=notify) for s in Seconds]
+
     results = await asyncio.gather(*cors)
     return results
 

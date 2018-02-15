@@ -1,3 +1,4 @@
+import asyncio
 
 Seconds = [
     ('first', 5),
@@ -5,7 +6,6 @@ Seconds = [
     ('third', 3)
 ]
 
-import asyncio
 
 async def sleeping(order, seconds, hook=None):
     await asyncio.sleep(seconds)
@@ -20,11 +20,6 @@ async def parallel_by_wait():
 
     # async関数の返り値はコルーチンになるので注意
     cors = [sleeping(s[0], s[1], hook=notify) for s in Seconds]
-    # cors = []
-    # for s in Seconds:
-    #     cors.append(sleeping(s[0], s[1], hook=notify))
-
-
 
     done, pending = await asyncio.wait(cors)
     return done, pending
