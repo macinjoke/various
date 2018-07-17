@@ -9,5 +9,5 @@ set(CMAKE_C_COMPILER /usr/local/bin/gcc-6)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fopenmp")
 
 
-add_executable(titeki_keisan_kadai main.cpp)
+add_executable(titeki_keisan_kadai hayashi.cpp)
 

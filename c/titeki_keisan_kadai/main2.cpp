@@ -29,10 +29,10 @@ int main (int argc, char** argv) {
     data = (int *)malloc(sizeof(int) * array_size);  /* array allocation */
     if(data == NULL) {
         printf("Error: Can not allocate memory\n");
-      exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);
     }
 
-    measure_lp = 50;   /* set num of loops for measurement */
+    measure_lp = 100;   /* set num of loops for measurement */
 
     for (i = 0; i < array_size; i++){
         data[i] = i % 7;    /* data[] can be anything */
@@ -43,7 +43,7 @@ int main (int argc, char** argv) {
 
 // start of Sequential execution
 
-    printf("Start ....");
+//    printf("Start ....");
     start = omp_get_wtime();
 
     for (lp=0; lp < measure_lp; lp++){ // loop for measurement
@@ -55,19 +55,19 @@ int main (int argc, char** argv) {
     } // end of loop for measurement
 
     end = omp_get_wtime();
-    printf(".... End\n");
+//    printf(".... End\n");
 
-    printf ("The sum is %u\n", res) ;
+//    printf ("The sum is %u\n", res) ;
     double sequential_time = (end - start) / measure_lp;
-    printf ("Sequential execution (CPU time in msec) = %10.10f\n\n", (sequential_time)/measure_lp);
-
+//    printf ("Sequential execution (CPU time in msec) = %10.10f\n\n", (sequential_time)/measure_lp);
+    printf ("%10.10f\n", (sequential_time)/measure_lp);
 
 // start of Parallel execution
 
     procs = omp_get_num_procs();
-    printf("# of processors = %d\n", procs);
+//    printf("# of processors = %d\n", procs);
 
-    printf("Start ....");
+//    printf("Start ....");
     start = omp_get_wtime();
 
     for (lp=0; lp < measure_lp; lp++){ // loop for measurement
@@ -82,11 +82,12 @@ int main (int argc, char** argv) {
 // end of measurement
 
     end = omp_get_wtime();
-    printf(".... End\n");
+//    printf(".... End\n");
 
-    printf ("The sum is %u\n", res) ;
+//    printf ("The sum is %u\n", res) ;
     double parallel_time = (end - start) / measure_lp;
-    printf ("  Parallel execution (CPU time in msec) = %10.10f\n", (parallel_time)/measure_lp);
+//    printf ("  Parallel execution (CPU time in msec) = %10.10f\n", (parallel_time)/measure_lp);
+    printf ("%10.10f\n\n", (parallel_time)/measure_lp);
 
     double result = sequential_time / parallel_time;
     printf("%10.10f\n", result);
