@@ -1,0 +1,11 @@
+{
+  "name": "decorator_practice",
+  "version": "1.0.0",
+  "description": "practice ES2015 decorator",
+  "main": "index.js",
+  "author": "mackinjoke",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-transform-decorators": "^6.24.1"
+  }
+}
