@@ -28,14 +28,14 @@ async def basic_async(num):
     for s in Seconds[num]:
         r = await sleeping(*s)
         print('{}\'s {} is finished.'.format(num, r))
-        print(datetime.datetime.now().second - start_time)
-    return True
+        elasped = datetime.datetime.now().second - start_time
+        print(elasped)
+    return f"{num}までで{elasped}秒経過した"
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    # loop.run_until_complete(basic_async())
+    # print(loop.run_until_complete(basic_async(0)))
+    # print(loop.run_until_complete(basic_async(1)))
     asyncio.ensure_future(basic_async(0))
     asyncio.ensure_future(basic_async(1))
     loop.run_forever()
-
-
