@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import logo from './logo.svg';
 import './App.css';
+
+const Title = styled.h1`
+  color: red;
+`
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Title>hogehoge</Title>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
